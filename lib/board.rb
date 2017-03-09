@@ -14,8 +14,14 @@ class Board
     # width.times do
   end
 
-  def matrix
-    @matrix
+  def move(direction)
+    if direction == "L"
+    self.matrix.map! { |i|
+      i.reverse
+   }
+    elsif direction == "R"
+      raise RuntimeError
+    end
   end
 
 end

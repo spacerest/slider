@@ -17,10 +17,21 @@ describe Board do
       expect(board.matrix).to eq [[1, 2], [3, 4]] 
     end 
 
-    # it "takes height 1 and width 2 and creates the right array" do
-    #   board =  Board.new(1, 2) 
-    #   expect(board.matrix).to eq [[1,nil]] 
-    # end 
   end
+
+  context "can move" do
+    
+    it "left in a 1 X 2" do
+      board = Board.new(1,2)
+      board.move("L")
+      expect(board.matrix).to eq [[2,1]]
+    end
+
+    it "cannot move right in a 1 X 2" do
+      board = Board.new(1,2)
+      expect{board.move("R")}.to raise_error(RuntimeError)
+    end
+
+  end 
 
 end 
