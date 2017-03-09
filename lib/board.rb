@@ -15,13 +15,16 @@ class Board
   def move(direction)
     emp = find_empty_space
     if direction == "L"
-      temp = matrix[emp[0]][emp[1]-1]
-      self.matrix[emp[0]][emp[1]-1] = matrix[emp[0]][emp[1]]
-      self.matrix[emp[0]][emp[1]] = temp
+      if emp[1] != 0 
+        temp = matrix[emp[0]][emp[1]-1]
+        self.matrix[emp[0]][emp[1]-1] = matrix[emp[0]][emp[1]]
+        self.matrix[emp[0]][emp[1]] = temp
+      end
     elsif direction == "R"
       raise RuntimeError
     end
   end
+  
 
   def find_empty_space
     matrix.each_with_index do |h, h_idx|

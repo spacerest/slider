@@ -37,6 +37,14 @@ describe Board do
       board.move('L')
       expect(board.matrix).to eq [[1, 2, 3], [4, 5, 6], [7, 9, 8]]
     end 
+
+    it 'doesnt move left if its on the edge' do
+      board = Board.new(3, 3)
+      matrix = [[1, 2, 3], [4, 5, 6], [9, 7, 8]]
+      board.matrix = [[1, 2, 3], [4, 5, 6], [9, 7, 8]]
+      board.move('L')
+      expect(board.matrix).to eq [[1, 2, 3], [4, 5, 6], [9, 7, 8]]
+    end
   end 
 
   context 'board' do
